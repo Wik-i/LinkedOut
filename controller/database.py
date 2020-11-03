@@ -1,4 +1,5 @@
 import pymongo
+from bson import binary
 from . import constants
 
 class Database(object):

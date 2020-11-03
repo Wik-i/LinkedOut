@@ -7,28 +7,64 @@ from models import Student,Commuter,Blog,Comment,User
 app = Flask(__name__)
 app.secret_key = "NotSecure"
 
+
 @app.before_first_request
 def initialize_db():
     Database.initialize()
 
+
 @app.route('/')
 def home():
-    return render_template('demo.html')
+    return render_template('home.html')
+
 
 @app.route('/test')
 def test():
     message=''
-    return render_template('auth/login.html', prompt_error=message)
+    return render_template('auth/test.html', prompt_error=message)
+
 
 @app.route('/static/test')
 def static_test():
     return send_file('static/detail01.html')
 
+
+@app.route('/match', methods=['POST'])
+def match():
+
+    return 0
+
+
 #----------------------------------  User  ----------------------------------
-@app.route('/student/auth/login', methods=['POST'])
-def login_student():
+@app.route('/log')
+def log_user():
+    email = session.get('email')
+    if email is not None :
+        return render_template('auth/log.html')
+
+    return render_template('auth/log.html')
+
+
+@app.route('/profile')
+def user_profile():
+    return render_template('auth/profile.html')
+
+
+@app.route('/auth/login', methods=["POST"])
+def lg_user():
+    id = request.form['identity']
     email = request.form['email']
     password = request.form['password']
+    if id=='student':
+        login_student(email, password)
+    elif id == 'commuter':
+        login_commuter(email, password)
+
+    return render_template('auth/log.html')
+
+
+
+def login_student(email, password):
     students=Database.find_one(collection=constants.STUDENT_COLLECTION, query={"email": email})
     if students is not None:
         if students["password"]==password:
@@ -37,23 +73,39 @@ def login_student():
         else:
             session.__setitem__('email', None)
             session.__setitem__('name', None)
-            return render_template('auth/login.html', prompt_error="密码错误")
+            return render_template('auth/test.html', prompt_error="密码错误")
     else:
         session.__setitem__('email', None)
         session.__setitem__('name', None)
-        return render_template('auth/login.html', prompt_error="该用户不存在  ")
+        return render_template('auth/test.html', prompt_error="该用户不存在  ")
     return redirect('/', code=302)
 
 
-@app.route('/student/auth/register', methods=['POST'])
-def register_student():
-    # prompt_alert = ""
+@app.route('/reg')
+def dis_reg():
+    return render_template('auth/register.html')
+
+@app.route('/auth/register', methods=["POST"])
+def register_user():
+    prompt_message = ""
     email = request.form.get('email')
     password = request.form.get('password')
     sex = request.form.get('sex')
     name = request.form.get('name')
-
+    identity = request.form.get("identity")
     school = request.form.get('school')
+    company = request.form.get('company')
+    if identity == "student":
+        register_student(email, password, sex, name, school)
+    elif identity == "commuter":
+        register_commuter(email, password, sex, name, company)
+    prompt_message = "something wrong happening!!"
+    return render_template('auth/register.html', prompt_message)
+
+
+
+def register_student(email, password, sex, name, school):
+    # prompt_alert = ""
     if not len(email) or not len(password) or not len(name):
         prompt_alert = "Please enter valid email and password values."
     elif Student.register(email, password, sex, name, [], school):
@@ -62,10 +114,8 @@ def register_student():
         prompt_alert = 'User with the same email already exists!'
     return render_template('auth/register.html', prompt_message=prompt_alert)
 
-@app.route('/commuter/auth/login', methods=['POST'])
-def login_commuter():
-    email = request.form['email']
-    password = request.form['password']
+
+def login_commuter(email, password):
     commuters=Database.find_one(collection=constants.COMMUTER_COLLECTION, query={"email": email})
     if commuters is not None:
         if commuters["password"]==password:
@@ -74,22 +124,17 @@ def login_commuter():
         else:
             session.__setitem__('email', None)
             session.__setitem__('name', None)
-            return render_template('auth/login.html', prompt_error="密码错误")
+            return render_template('auth/test.html', prompt_error="密码错误")
     else:
         session.__setitem__('email', None)
         session.__setitem__('name', None)
-        return render_template('auth/login.html', prompt_error="该用户不存在  ")
+        return render_template('auth/test.html', prompt_error="该用户不存在  ")
     return redirect('/', code=302)
 
 
-@app.route('/commuter/auth/register', methods=['POST'])
-def register_commuter():
+
+def register_commuter(email, password, sex, name, company):
     # prompt_alert = ""
-    email = request.form.get('email')
-    password = request.form.get('password')
-    sex = request.form.get('sex')
-    name = request.form.get('name')
-    company = request.form.get('company')
     if not len(email) or not len(password) or not len(name):
         prompt_alert = "Please enter valid email and password values."
     elif Commuter.register(email, password, sex, name, company):
@@ -145,9 +190,9 @@ def get_blogs(user_id=None):
     return render_template('blogs/doctorblogs.html', blogs=user_blogs, email=session.get('email'), c=0)
 
 
-@app.route('/pubblog')
+@app.route('/publish')
 def pubblog():
-    return render_template('blogs/pubblog.html')
+    return render_template('blog/publish.html')
 
 
 @app.route('/blog/create', methods=['POST'])
