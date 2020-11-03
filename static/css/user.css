@@ -1,0 +1,445 @@
+.content-wrap {
+    padding-top: 30px;
+    border-top: 1px solid #eee;
+}
+.content {
+    width: 1080px;
+    margin: auto;
+}
+.personal-menu {
+    width: 277px;
+    border: 1px solid #eee;
+    text-align: center;
+    font-size: 18px;
+}
+.personal-header {
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+.personal-header .portrait {
+    margin: 20px auto 15px;
+    width: 74px;
+    height: 74px;
+    border-radius: 50%;
+    background: no-repeat center #0ac5ef;
+    background-size: cover;
+}
+.personal-header .nickname {
+    padding: 0 10px 20px;
+    color: #666;
+}
+.personal-content ul {
+    padding: 15px 0;
+}
+.personal-content li {
+    padding: 15px;
+    box-sizing: border-box;
+}
+.personal-content li i {
+    margin-right: 10px;
+    display: inline-block;
+    width: 30px;
+    height: 27px;
+    vertical-align: bottom;
+}
+.personal-content li a {
+    color:#aaa;
+}
+.personal-content .active a {
+    color:#0855f2
+}
+.personal-content .user-apply i {
+    background-position: 0 -150px;
+}
+.personal-content .user-apply.active i {
+    background-position: -29px -150px;
+}
+.personal-content .user-footprint i {
+    background-position: 0 0;
+}
+.personal-content .user-footprint.active i {
+    background-position: -29px 0;
+}
+.personal-content .user-subscription i {
+    background-position: 0 -29px;
+}
+.personal-content .user-subscription.active i {
+    background-position: -29px -29px;
+}
+.personal-content .user-collect i {
+    background-position: 0 -60px;
+}
+.personal-content .user-collect.active i {
+    background-position: -29px -60px;
+}
+.personal-content .user-award i {
+    background-position: 0 -181px;
+}
+.personal-content .user-award.active i {
+    background-position: -29px -181px;
+}
+.personal-content .user-message i {
+    background-position: 0 -89px;
+}
+.personal-content .user-message.active i {
+    background-position: -29px -89px;
+}
+.personal-content .user-information i {
+    background-position: 0 -120px;
+}
+.personal-content .user-information.active i {
+    background-position: -29px -120px;
+}
+.content>.f-r {
+    width: 100%;
+} 
+.model-title {
+    font-size: 22px;
+    color: #4f5964;
+}
+.video-list-wrap {
+    margin-bottom: 38px;
+    font-size: 0;
+}
+.video-list-wrap a {
+    position: relative;
+    width: 180px;
+    display: inline-block;
+}
+.video-list-wrap a:hover .close-icon {
+    display: block;
+}
+.video-list-wrap a:not(:nth-child(4n)){
+    margin: 20px 20px 0 0;
+}
+.video-list-wrap img {
+    width: 180px;
+    height: 100px;
+}
+.video-list-wrap p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.video-list-wrap .title {
+    padding: 5px 0 3px;
+    font-size: 14px;
+    color: #333540;
+}
+.video-list-wrap .time {
+    font-size: 12px;
+    color: #b1b5be;
+}
+ 
+.sub-list:not(:last-child) {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+.sub-list a {
+    display: inline-block;
+}
+.sub-list .sub-pic {
+    width: 98px;
+    height: 98px;
+    border: 1px solid #eee;
+}
+.sub-intro {
+    margin-left: 10px;
+}
+.sub-intro p {
+    color: #a2a8b4;
+    font-size: 12px;
+    line-height: 20px;
+}
+.sub-intro .com-intro,
+.sub-intro .title {
+    width: 187px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.sub-intro .title {
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #4f5964;
+}
+.sub-btn {
+    margin-top: 6px;
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #f3f5f9;
+    border-radius: 3px;
+    font-size: 12px;
+    color: #a2a8b4;
+    cursor: pointer;
+}
+.sub-btn  i {
+    display: inline-block;
+    width: 20px;
+    vertical-align: middle;
+}
+.sub-list>.f-r {
+    position: relative;
+    width: 480px;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 0;
+}
+.sub-list>.f-r .video-area {
+    margin-right: 12px;
+    position: relative;
+    display: inline-block;
+    width: 178px;
+    height: 100px;
+}
+.sub-list>.f-r .video-area img {
+    width: 100%;
+    height: 100%;
+}
+.sub-list>.f-r .video-area p {
+    position: absolute;
+    width: 100%;
+    padding: 0 3px;
+    box-sizing: border-box;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    line-height: 26px;
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background-color: rgba(0,0,0,.5);
+}
+.more-wrap:hover .more-box {
+    display: block;
+}
+.more-wrap {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100%;
+    cursor: pointer;
+}
+.more-wrap .more-box {
+    padding-top: 42px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.5);
+    color: #fff;
+    text-align: center;
+    display: none;
+    transition: all 1s linear;
+}
+.more-wrap .sub-more-btn {
+    font-size: 12px;
+}
+ 
+.user-info-header .portrait {
+    display: inline-block;
+    width: 74px;
+    height: 74px;
+    border-radius: 50%;
+    background: no-repeat center;
+    background-size: cover;
+}
+ 
+.user-info-header span {
+    vertical-align: middle;
+}
+.user-form {
+    margin-top: 32px;
+}
+.user-form-row {
+    margin-bottom: 40px;
+}
+.user-form-row>div {
+    width: 380px;
+}
+.user-form-row label {
+    color: #aeb0b5;
+}
+.user-form-row label.active {
+    color: #2c6ef4;
+}
+.user-form-row input {
+    padding: 15px 0 8px;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+}
+select {
+    width: 100%;
+    padding: 15px 0 8px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #eee;
+}
+.save-btn {
+    width: 80px;
+    border-radius: 3px;
+    background-color: #4a82e1;
+    line-height: 36px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+}
+ 
+.operator-wrap {
+    margin-top: 10px;
+}
+.operator-wrap .favour {
+    color: #ffb245;
+    font-size: 20px;
+    vertical-align: middle;
+}
+.operator-wrap .comment {
+    color: #ff766f;
+    vertical-align: middle;
+}
+.operator-wrap .news {
+    color: #579aff;
+    font-size: 19px;
+}
+.operator-wrap .operator {
+    color: #aeb0b5;
+}
+.operator-wrap .operator-user {
+    margin: 0 8px 0 12px;
+}
+.operator-wrap .replay {
+    padding: 0 0 10px 45px;
+    color: #4f5964;
+}
+.operator-wrap .system-msg {
+   margin-left: 49px;
+}
+.comment-content-wrap {
+    margin-left: 45px;
+    width: 94.5%;
+    display: block;
+    padding: 12px 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: #f5f6f7;
+    color: #65779d;
+}
+.comment-content-wrap .comment-content {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.operator-title {
+    padding: 12px 0 12px 15px;
+}
+.operator-title>.f-r {
+    font-size: 12px;
+    color: #aeb0b5;
+}
+.operator-title>.f-r .btn {
+    margin-left: 7px;
+    color: #989a9f;
+    cursor: pointer;
+}
+.operator-title>.f-r .btn:hover {
+    color: #0855f2;
+}
+.operator-wrap .source {
+    padding: 12px 0 0;
+    text-align: right;
+    color: #989a9f;
+    font-size: 12px;
+}
+ 
+.apply-content {
+    margin-top: 20px;
+}
+.apply-wrap {
+    position: relative;
+    margin-top: 0;
+    border-radius: 5px;
+    padding: 7px 0 17px;
+    background-color: #fff;
+}
+.apply-wrap .right-wrap {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    color: #aeb0b5;
+}
+.apply-wrap .link {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 100%;
+    background-color: inherit;
+    z-index: 10;
+    display: none;
+}
+.apply-wrap .link a{
+    position: absolute;
+    top: 36px;
+    right: 22px;
+    font-weight: bold;
+    color: #2c6ef4;
+}
+.apply-wrap:hover {
+    background-color: #f6f8fa;
+}
+.apply-wrap:hover .link {
+    display: block;
+}
+.apply-wrap .apply-status {
+    display: inline-block;
+    width: 53px;
+    line-height: 22px;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 12px;
+    text-align: center;
+}
+.apply-wrap .applying {
+    background-color: #0d5ad9;
+}
+.apply-wrap .winning {
+    background-color: #df5e5e;
+}
+.apply-wrap .applied {
+    background-color: #b8b8b8;
+}
+.apply-wrap>.tip {
+    margin-left: 81px;
+}
+.apply-wrap>.recommend {
+    margin-left: 15px;
+}
+.no-more {
+    font-size: 14px;
+    color: #999;
+    text-align: center;
+    margin-top: 35px;
+}
+ 
+.collect-list-wrap a:not(:nth-child(4n)) {
+    margin: 0 20px 20px 0;
+}
+ 
+.close-icon {
+    position: absolute;
+    width: 30px;
+    font-size: 30px;
+    height: 30px;
+    top: -12px;
+    right: -10px;
+    border-radius: 50%;
+    color: #4f5964;
+    background-color: #fff;
+    display: none;
+}

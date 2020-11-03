@@ -1,0 +1,122 @@
+.com-header {
+    height: 390px;
+}
+.com-header>.title {
+    padding-top: 30px;
+    text-align: center;
+    font-size: 28px;
+    color: #fff;
+}
+.com-header .com-wrap {
+    margin: 30px auto 0;
+    width: 1080px;
+    font-size: 0;
+}
+.com-header a {
+    display: inline-block;
+}
+.com-header .com-wrap .card-wrap {
+    display: inline-block;
+    width: 180px;
+    height: 254px;
+    border-radius: 5px;
+    background-color: #fff;
+    text-align: center;
+    box-shadow: 0 0 40px 2px #0044a0;
+}
+.com-header .com-wrap .card-wrap:not(:last-child) {
+    margin-right: 44px;
+}
+.com-header .com-wrap img {
+    margin-top: 21px;
+    width: 84px;
+    height: 84px;
+    border: solid 1px #eee;
+    border-radius: 5px;
+}
+.com-header .com-wrap .title {
+    margin: 13px 0 6px;
+    font-size: 15.5px;
+}
+.com-header .com-wrap .intro {
+    margin-bottom: 9px;
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    font-size: 12px;
+    color: #96a7f3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.com-header .com-wrap .video-link {
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px 15px 13px;
+    border-top: 1px solid #eee;
+    font-size: 12px;
+    color: #999;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.card-wrap .see-more-btn {
+    padding: 3px 16px;
+    border-radius: 2px;
+    border: solid 1px #4a82e1;
+    font-size: 14px;
+    color: #4a82e1;
+}
+.content {
+    margin: 29px auto 0;
+    width: 1080px;
+}
+.com-list-wrap {
+    margin-top: 10px;
+    font-size: 0;
+}
+.com-list-wrap a {
+    display: inline-block;
+    padding: 19px 15px;
+    box-sizing: border-box;
+    width: 254px;
+    height: 110px;
+    border: solid 1px #eaeaea;
+}
+.com-list-wrap a:hover {
+    box-shadow: 0 0 5px 0 #e2e2e2;
+}
+.com-list-wrap a:not(:nth-child(4n)) {
+    margin: 17px 20px 0 0;
+}
+.com-list-wrap img {
+    width: 71px;
+    height: 71px;
+}
+.com-list-wrap .f-r {
+    width: 63%;
+}
+.com-list-wrap .f-r p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.com-list-wrap .title {
+    margin-top: 1px;
+    font-size: 15.5px;
+}
+.com-list-wrap .intro {
+    margin: 4px 0 5px;
+    font-size: 12px;
+    color: #96a7f3;
+    line-height: 1.85;
+}
+.com-list-wrap .line {
+    display: inline-block;
+    margin: 0 5px;
+}
+.com-list-wrap .video-num {
+    font-size: 12px;
+    color: #999;
+}

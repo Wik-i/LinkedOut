@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>welcome</title>
+  <link href="css/bootstrap.css" rel="stylesheet" />
+  <script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+  <script src="js/bootstrap.min.js" type="text/javascript"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="css/lg.css" /> -->
+  <style>
+    html {
+      height: 100%;
+    }
+
+    body {
+      background-color: #eef3fa;
+      font: '微软雅黑'12px;
+      margin: auto;
+      height: 100%;
+    }
+
+    #conter {
+      background: #fff;
+      width: 100%;
+      height: 100%;
+      margin: auto;
+    }
+
+    #code {
+      width: 67px;
+      height: 35px;
+      position: absolute;
+    }
+
+    .loge {
+      height: 100px;
+    }
+
+    .loge img {
+      left: 100px;
+      padding-left: 100px;
+    }
+
+    .login {
+      background-color: #fff;
+
+      float: right;
+      height: 400px;
+      width: 365px;
+      margin-top: 105px;
+      padding: 20px;
+      margin-right: 118px;
+      border-radius: 10px;
+    }
+
+    .banner {
+      height: 100%;
+      width: 100%;
+      background-image: url('images/761cc80c7d30a49c90219386554e0f7.jpg');
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+    }
+
+    #head {
+      display: flex;
+      justify-content: center;
+      height: 30px;
+      font-size: 18px;
+      color: #3f3e3e;
+    }
+
+    #vip {
+      color: #6aa2e4;
+      margin-left: 20px;
+      line-height: 30px;
+      cursor: pointer;
+      padding-right: 1rem;
+    }
+
+    .reg {
+      margin-left: 20px;
+      line-height: 30px;
+      padding-right: 1rem;
+    }
+
+    .head-pasd {
+      line-height: 30px;
+      border-left: 1px solid #000000;
+      padding-left: 1rem;
+    }
+
+
+    a {
+      text-decoration: none;
+      font-family: '微软雅黑';
+      color: #6aa2e4;
+    }
+
+    hr {
+      width: 320px;
+      border-color: #6aa2e4;
+    }
+
+    input {
+      height: 30px;
+      width: 200px;
+      margin: 10px;
+    }
+
+    .p1 {
+      height: 30px;
+    }
+
+    .img {
+      margin-top: 10px;
+      position: absolute;
+    }
+
+    .btn {
+      background-color: #6aa2e4;
+      width: 240px;
+      height: 40px;
+      border: 0px;
+      color: #fff;
+      margin-left: 60px;
+      position: relative;
+    }
+
+    .even {
+      width: 100px;
+    }
+
+    footer {
+      margin: auto;
+      width: 1130px;
+      height: 100px;
+      text-align: center;
+    }
+
+    p {
+      font-size: 18px;
+      color: #000000;
+    }
+
+    .a1 {
+      margin: 10px;
+      color: #000000;
+    }
+
+    .my-input {
+      width: 328px;
+      padding: 10px;
+      border: 1px solid #dadada;
+      border-radius: 10px;
+    }
+
+    .banner-ingoue {
+      position: fixed;
+      width: 400px;
+      top: 10%;
+    }
+
+    .well {
+      text-align: center;
+      background-color: transparent;
+      border: none;
+    }
+
+    .form-inline {
+      font-size: 60px;
+      color: #fafafa;
+      letter-spacing: 0;
+      text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 3px 0px #777, 0px 4px 0px #666, 0px 5px 0px #555, 0px 6px 0px #444, 0px 7px 0px #333, 0px 8px 7px #001135
+    }
+
+    #dt {
+      padding-top: 70px;
+      font-size: 40px;
+      color: #fafafa;
+      letter-spacing: 0;
+      text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 3px 0px #777, 0px 4px 0px #666, 0px 5px 0px #555, 0px 6px 0px #444, 0px 7px 0px #333, 0px 8px 7px #001135
+    }
+  </style>
+</head>
+
+<body>
+  <div id="conter">
+    <div class="banner"> 
+      <div class="login">
+        <head>
+          <div id="head">
+            <span id="vip"> 注册账号 </span>
+          </div>
+          <hr />
+        </head>
+        <div>
+          <input class="my-input" type="text" name="username" id="username" placeholder="请输入用户名" /><br />
+          <input class="my-input" type="password" name="password" id="password" placeholder="请输入密码" />
+
+          <br />
+          <p id="p1">
+            <button class="btn" onclick="findAll()">登录</button>
+          </p>
+        </div>
+
+        <div id="head">
+          <span class="reg"> <a href="index.html">返回首页</a> </span>
+          <span class="head-pasd"> 忘记密码? </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="jquery/dist/jquery.min.js" type="text/javascript"></script>
+  <script>
+    function findAll() {
+      window.location.href = "user.html";
+    }
+  </script>
+</body>
+
+</html>

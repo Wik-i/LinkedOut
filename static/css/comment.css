@@ -1,0 +1,55 @@
+.v_judge{width:100%;border:solid 1px #eee;background: #fff;padding: 0 0 10px;margin-top: 10px;}
+.v_judge_title{border-bottom: solid 1px #eee;height: 44px;line-height: 44px;font-size: 15px;font-weight: 600;padding:0 20px;}
+.v_judge_title span{font-size: 13px;padding-left: 10px;font-weight: 500;}
+.v_judge_text{padding: 15px 20px 0;}
+.v_judge_text .v_judge_img{width:42px;height: 42px;border-radius: 50%;}
+.v_judge_text .v_judge_img img{width:42px;height: 42px;border-radius: 50%;}
+.v_judge_input{width:91%;height: 60px;margin-left: 15px;position: relative;padding-bottom: 15px;border-bottom: solid 1px #eee;}
+.v_judge_input textarea{width:98%;height: 54px;resize: none;background: #f5f5f5;border:solid 1px #eee;padding: 3px 1%}
+.v_judge_input a{position: absolute;right:6px;bottom: 18px;width:50px;height: 26px;background: #4a82e1;text-align: center;line-height: 26px;border-radius: 3px;color: #fff;font-size: 13px;}
+.v_judge_list{padding: 15px 20px 0;}
+.v_judge_list ul{margin-bottom: 15px;}
+.v_judge_list ul li{margin-bottom: 10px;}
+.v_pro_img{width:42px;height: 42px;border-radius: 50%;}
+.v_pro_img img{width:42px;height: 42px;border-radius: 50%;}
+.v_pro_info{width:91%;margin-left: 15px;padding-bottom: 10px;border-bottom: solid 1px #eee;}
+.v_pro_info p:first-child{color: #333;font-size: 13px;line-height: 22px;position: relative;}
+.v_pro_info p:first-child span{color: #707070; cursor: pointer;}
+.v_pro_info p:first-child span:last-child{color: #333; cursor: pointer;}
+.v_pro_point{position: absolute;display: inline-block;top:-10px;right:0;display: none;}
+.v_pro_point span{padding-left: 5px;font-size: 12px;}
+.v_pro_info p:nth-child(2){color: #333;line-height: 24px;font-size:14px;}
+.v_pro_info p:nth-child(3){color: #707070;line-height: 26px; font-size: 12px}
+.v_pro_info p:nth-child(3) span{padding-right: 15px; cursor: pointer; color: #8f8f8f;}
+.v_pro_info p:nth-child(3) span em{font-style: normal;}
+.v_pro_info p:nth-child(3) span i{font-size: 13px;color: #ccc;}
+.v_reply_input{width:100%;display: none;height:26px;}
+.v_reply_input input{display: inline-block;border:solid 1px #eee;text-align: left;height: 24px;line-height:24px;background: #f5f5f5;width:85%;padding-left: 5px;font-family: "Microsoft YaHei", "微软雅黑"}
+.v_reply_input span{margin-right: 20px;line-height: 26px;padding: 0 10px;background:#4a82e1;color: #fff;border-radius: 3px;cursor: pointer;}
+.v_re_span{background:transparent !important;color: #666 !important;padding:0 3px !important;margin-right: 5px !important;line-height: 24px !important;}
+.v_reply_list{width:100%;margin-top: 10px;}
+.v_reply_list .v_reply_img{width:32px;height: 32px;border-radius: 50%;}
+.v_reply_list .v_reply_img img{width:32px;height: 32px;border-radius: 50%;}
+.v_reply_list .v_reply_info{margin-left: 12px;width:91%;}
+.v_reply_info p:first-child span{color:#707070;padding:0 5px 0 0;font-size: 14px;}
+.v_reply_info p:nth-child(2){color: #707070;line-height: 26px; font-size: 12px}
+.v_reply_info p:nth-child(2) span{padding-right: 15px; cursor: pointer; color: #8f8f8f;}
+.v_reply_info p:nth-child(2) span i{font-size: 13px;color: #ccc;}
+.v_reply_info p:first-child span:nth-child(2){padding-left: 5px;}
+.v_reply_m{position: relative;padding-bottom:10px;}
+.reply_more{position: absolute;bottom: 0px;left:0px;color: #bbb;cursor: pointer;text-align: center;font-size: 12px;display: none;width:100%;background: #fff;}
+.zan_heart{color: #4a82e1 !important;}
+.v_tip{width:400px;background: #fff;border-radius: 4px;padding-bottom: 15px;display: none;}
+.tip_tit{border-bottom: solid 1px #eaeaea;margin: 10px 15px;font-size: 13px;padding-bottom: 10px;}
+.tip_tit p span{font-size: 18px;font-weight: 600;color: #4a82e1;padding-right: 5px;}
+ 
+.more_sub{color: #707070;text-align: center;}
+.tip_list a{display: inline-block;line-height: 30px;width: 370px;padding: 0 15px;}
+.tip_list a:hover{background: #eee;}
+.tip_list a span{font-size: 14px;}
+.tip_list a .tip_input{float: right;width:13px;height: 13px;display: inline-block;border:solid 1px #eee;background: #fff;margin-top: 8px;}
+.tip_list a .t_active{background: #4a82e1;border: solid 1px #4a82e1;}
+.tip_btn{margin-top: 10px;text-align: center;}
+.tip_btn a{width:120px;height: 34px;display: inline-block;margin-right: 10px;border:solid 1px #4a82e1;line-height: 34px;text-align: center;border-radius: 3px;}
+.tip_btn a:hover{opacity: 0.8;}
+.tip_btn .tip_com{background: #4a82e1;color: #fff;}

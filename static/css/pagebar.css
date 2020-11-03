@@ -1,0 +1,47 @@
+#pagebar {
+  text-align: center;
+  margin: 35px 0 30px 0;
+  font-size: 14px;
+}
+#pagebar li {
+  list-style: none;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 30px;
+  margin: 0 10px 10px 0;
+  border: 1px solid #eaeaea;
+  -webkit-transition: .2s;
+  -moz-transition: .2s;
+  transition: .2s;
+  
+}
+#pagebar li:hover {
+  background: #486afd;
+}
+#pagebar li:hover a {
+  color: #fff;
+}
+#pagebar li a {
+  display: block;
+  text-align: center;
+  min-width: 10px;
+  padding: 0 10px;
+  color: #999;
+  text-decoration: none;
+}
+#pagebar .active {
+  background: #486afd;
+}
+#pagebar .active a {
+  color: #fff;
+}
+#pagebar .disabled {
+  padding: 0 10px;
+  cursor: default;
+  color: #999;
+  background-color: #f5f5f5;
+}
+#pagebar .disabled:hover {
+  background: #b5d5e8;
+  color: #fff;
+}
