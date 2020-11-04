@@ -184,7 +184,7 @@
   </style>
 </head>
 
-<body>
+<body onload="load()">
   <div id="conter">
     <div class="banner"> 
       <div class="login">
@@ -234,7 +234,7 @@
                     </div>
                 {% endif %}
                 <div style="padding-top: 30px">
-                    <button type="submit" class="btn">登录</button>
+                    <button type="submit" class="btn">注册</button>
                 </div>
             </form>
 
@@ -243,6 +243,9 @@
       </div>
     </div>
   </div>
+
+
+
   <script src="{{ url_for('static',filename = 'jquery/dist/jquery.min.js') }}" type="text/javascript"></script>
     <script>
         function showinfo(values) {
@@ -254,6 +257,10 @@
                 $("#school").css("display", "block");
                 $("#company").css("display", "none");
             }
+        }
+        function load() {
+            $("#school").css("display", "none");
+            $("#company").css("display", "none");
         }
     </script>
 </body>

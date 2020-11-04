@@ -47,7 +47,16 @@ def log_user():
 
 @app.route('/profile')
 def user_profile():
-    return render_template('auth/profile.html')
+    student = Student.get_by_email(session.get('email'))
+    commuter = Commuter.get_by_email(session.get('email'))
+    identity = "student"
+    if student is None:
+        user = commuter
+        identity = "commuter"
+    else:
+        user = student
+
+    return render_template('auth/profile.html', user=user, identity=identity)
 
 
 @app.route('/auth/login', methods=["POST"])
@@ -56,11 +65,11 @@ def lg_user():
     email = request.form['email']
     password = request.form['password']
     if id=='student':
-        login_student(email, password)
+        return login_student(email, password)
     elif id == 'commuter':
-        login_commuter(email, password)
+        return login_commuter(email, password)
 
-    return render_template('auth/log.html')
+
 
 
 
@@ -96,9 +105,9 @@ def register_user():
     school = request.form.get('school')
     company = request.form.get('company')
     if identity == "student":
-        register_student(email, password, sex, name, school)
+        return register_student(email, password, sex, name, school)
     elif identity == "commuter":
-        register_commuter(email, password, sex, name, company)
+        return register_commuter(email, password, sex, name, company)
     prompt_message = "something wrong happening!!"
     return render_template('auth/register.html', prompt_message)
 
