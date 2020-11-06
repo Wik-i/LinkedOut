@@ -14,7 +14,6 @@ from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
 from pdfminer.pdfpage import PDFPage
 
-
 class Extractor():
         def __init__(self, filename):
                 #self.softskills=self.load_skills('web_developer/softskills.txt')
