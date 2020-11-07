@@ -255,6 +255,42 @@ def create_new_comment(blog_id):
     return redirect('/')
 
 
+#----------------------------------  Detail  ----------------------------------
+@app.route('/detail01')
+def detail_01():
+    return  render_template('detail/detail01.html')
+
+
+@app.route('/detail02')
+def detail_02():
+    return  render_template('detail/detail02.html')
+
+
+@app.route('/detail03')
+def detail_03():
+    return  render_template('detail/detail03.html')
+
+
+@app.route('/play01')
+def play01():
+    return render_template('detail/play01.html')
+
+
+@app.route('/play02')
+def play02():
+    return render_template('detail/play02.html')
+
+
+@app.route('/play03')
+def play03():
+    return render_template('detail/play03.html')
+
+
+@app.route('/play04')
+def play04():
+    return render_template('detail/play04.html')
+
+
 #----------------------------------  File  ----------------------------------
 def allowed_file(filename):   # 验证上传的文件名是否符合要求，文件名必须带点并且符合允许上传的文件类型要求，两者都满足则返回 true
     return '.' in filename and \
