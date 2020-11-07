@@ -1,16 +1,21 @@
 import os
 
-from flask import (Flask, render_template, request, session, redirect, send_file)
+from flask import (Flask, render_template, request, jsonify, session, redirect, send_file)
 from controller import constants
 from controller.database import Database
 from models import Student,Commuter,Blog,Comment,User
-from werkzeug import secure_filename
-
+from werkzeug.utils import secure_filename
+from match import Keyword_Extractor
+from flask_uploads import UploadSet, configure_uploads,  ALL
 
 app = Flask(__name__)
 app.secret_key = "NotSecure"
 
-UPLOAD_FOLDER = r'C:\hhh'
+basedir=os.path.abspath(os.path.dirname(__file__))
+UPLOAD_FOLDER = str(basedir)+'\\uploads\\'
+
+
+
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif','doc'])
 
@@ -18,6 +23,7 @@ ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif','doc'])
 @app.before_first_request
 def initialize_db():
     Database.initialize()
+
 
 
 @app.route('/')
@@ -36,10 +42,10 @@ def static_test():
     return send_file('static/detail01.html')
 
 
-@app.route('/match', methods=['POST'])
+@app.route('/match')
 def match():
 
-    return 0
+    return render_template('match/match.html')
 
 
 #----------------------------------  User  ----------------------------------
@@ -106,11 +112,11 @@ def register_user():
     prompt_message = ""
     email = request.form.get('email')
     password = request.form.get('password')
-    sex = request.form.get('sex')
-    name = request.form.get('name')
+    sex = "none"
+    name = "name"
     identity = request.form.get("identity")
-    school = request.form.get('school')
-    company = request.form.get('company')
+    school = "school"
+    company = "company"
     if identity == "student":
         return register_student(email, password, sex, name, school)
     elif identity == "commuter":
@@ -124,7 +130,7 @@ def register_student(email, password, sex, name, school):
     # prompt_alert = ""
     if not len(email) or not len(password) or not len(name):
         prompt_alert = "Please enter valid email and password values."
-    elif Student.register(email, password, sex, name, [], school):
+    elif Student.register(email, password, sex, [], name, school):
         return redirect('/', code=302)
     else:
         prompt_alert = 'User with the same email already exists!'
@@ -151,7 +157,7 @@ def login_commuter(email, password):
 
 def register_commuter(email, password, sex, name, company):
     # prompt_alert = ""
-    if not len(email) or not len(password) or not len(name):
+    if not len(str(email)) or not len(str(password)) or not len(str(name)):
         prompt_alert = "Please enter valid email and password values."
     elif Commuter.register(email, password, sex, name, company):
         return redirect('/', code=302)
@@ -203,7 +209,7 @@ def get_blogs(user_id=None):
         return render_template('error_404.html')
 
     user_blogs = user.get_blogs()
-    return render_template('blogs/doctorblogs.html', blogs=user_blogs, email=session.get('email'), c=0)
+    return render_template('blogs/myblogs.html', blogs=user_blogs, email=session.get('email'), c=0)
 
 
 @app.route('/publish')
@@ -213,7 +219,6 @@ def pubblog():
 
 @app.route('/blog/create', methods=['POST'])
 def create_new_blog():
-
     student = Student.get_by_email(session.get('email'))
     commuter = Commuter.get_by_email(session.get('email'))
     if student is None:
@@ -221,13 +226,19 @@ def create_new_blog():
     else:
         user = student
 
-    title = request.form.get('blogTitle')
-    description = request.form.get('blogDescription')
+    title = request.form.get('title')
+    description = request.form.get('blogContent')
     blog = Blog(title=title, description=description, author=user.name, author_id=user._id)
     blog.save_to_mongo()
     return redirect('/myblogs')
 
+
 # -----------------------------  Comments  ----------------------------------
+@app.route('/jobs')
+def send_jobs():
+    return render_template('blog/jobs.html')
+
+
 @app.route('/comment/create/<blog_id>',methods=['POST'])
 def create_new_comment(blog_id):
     student = Student.get_by_email(session.get('email'))
@@ -249,24 +260,80 @@ def allowed_file(filename):   # 验证上传的文件名是否符合要求，文
     return '.' in filename and \
            filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
-@app.route('/upload', methods=['GET', 'POST'])
-def upload_file():
+
+@app.route('/upload/<string:name>')
+@app.route('/upload', methods=['POST'])
+def upload_file(name=None):
     if request.method == 'POST':   # 如果是 POST 请求方式
         file = request.files.get('file')   # 获取上传的文件
         if file and allowed_file(file.filename):   # 如果文件存在并且符合要求则为 true
             filename = secure_filename(file.filename)   # 获取上传文件的文件名
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))   # 保存文件
-            return '{} upload successed!'.format(filename)   # 返回保存成功的信息
-    # 使用 GET 方式请求页面时或是上传文件失败时返回上传文件的表单页面
-    return '''
-    <!doctype html>
-    <title>Upload new File</title>
-    <h1>Upload new File</h1>
-    <form action="" method=post enctype=multipart/form-data>
-      <p><input type=file name=file>
-         <input type=submit value=Upload>
-    </form>
-    '''
+            result = {
+                "code":0,
+                "msg":"",
+                "data":{
+                    "src":(str(os.path.join(app.config['UPLOAD_FOLDER']))+filename),
+                    "title":filename
+                }
+            }
+        else:
+            result = {
+                "code":1,
+                "msg":"图片上传失败",
+                "data":{
+                    "src":"",
+                    "title":name
+                }
+            }
+        print(result)
+        return result   # 返回保存成功的信息
+
+    if not name:
+        return render_template('error_404.html')
+    file_path = os.path.join(UPLOAD_FOLDER, name)
+    return send_file(file_path)
+
+
+
+
+@app.route('/pdf/upload', methods=['POST','GET'])
+def upload_pdf(name=None):
+    if request.method == 'POST':   # 如果是 POST 请求方式
+        file = request.files.get('file')   # 获取上传的文件
+        if file and allowed_file(file.filename):   # 如果文件存在并且符合要求则为 true
+            filename = secure_filename(file.filename)   # 获取上传文件的文件名
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))   # 保存文件
+            result = {
+                "code":0,
+                "msg":"",
+                "data":{
+                    "src":(str(os.path.join(app.config['UPLOAD_FOLDER']))+filename),
+                    "title":filename
+                }
+            }
+        else:
+            result = {
+                "code":1,
+                "msg":"图片上传失败",
+                "data":{
+                    "src":"",
+                    "title":name
+                }
+            }
+        extactor = Keyword_Extractor.Extractor(filename)
+        extactor.match()
+        return result   # 返回保存成功的信息
+
+    #get request
+    if not name:
+        return render_template('error_404.html')
+    file_path = os.path.join(UPLOAD_FOLDER, name)
+    return send_file(file_path)
+
+
+
+
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=5000, debug=True)

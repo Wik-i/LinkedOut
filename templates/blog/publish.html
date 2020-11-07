@@ -33,7 +33,7 @@
 
 <input hidden id="formData">
 	<div>
-		<form class="layui-form frameContent">
+		<form action="/blog/create" method="POST" class="layui-form frameContent">
 			<div class="layui-form-item">
 				<label class="layui-form-label">标题</label>
 				<div class="layui-input-block">
@@ -45,13 +45,13 @@
             <div class="layui-form-item">
 				<label class="layui-form-label"></label>
 				<div class="layui-input-block">
-					<textarea id="demo"></textarea>
+					<textarea id="demo" name="blogContent"  lay-verify="required" placeholder="详细描述"></textarea>
 				</div>
 			</div>
 
 
 			<div class="frameBtn">
-				<button class="layui-btn"  type="submit">确定</button>
+				<button class="layui-btn" type="submit">确定</button>
 			</div>
 		</form>
 	</div>
@@ -62,8 +62,16 @@
 <script>
     layui.use('layedit', function(){
       var layedit = layui.layedit;
+      layedit.set({
+          uploadImage: {
+              url:'/upload',
+              type:'POST'
+          }
+      })
       layedit.build('demo'); //建立编辑器
     });
+
+
     </script>
 
 </html>

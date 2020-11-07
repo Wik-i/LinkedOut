@@ -13,10 +13,7 @@
     <meta name="keywords" content="宣讲会,校园宣讲会,在线宣讲会,知识分享平台,职场法则,职场干货,经验分享,空中宣讲会,校园招聘,名企招聘,实习生招聘,秋招" />
 
     <meta name="sogou_site_verification" content="s4JvS0LeoQ" />
-    <link href="{{ url_for('static',filename = 'css/common.css') }}" rel="stylesheet">
-    <link href="{{ url_for('static',filename = 'css/base.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static',filename = 'css/index.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static',filename = 'css/pagebar.css') }}">
+    {% include 'css.html' %}
 </head>
 
 <body>
@@ -54,88 +51,17 @@
 
         </div>
     </div>
+
     <div class="content">
-        <h3>专栏<span class="tip">&nbsp;&nbsp; 你的职场加油站</span><a class="f-r more"
-                href="jobs.html">更多<i class="iconfont icon-arrow-right-copy"></i></a></h3>
-        <div class="list-data-wrap data-recommend-wrap">
-
-            <a href="play01.html" target="_blank">
-                <div class="img-wrap"><img src="{{ url_for('static',filename = 'picture/7cc8222d70fea911a4dd086ee99c4264.jpg') }}" alt="">
-                </div>
-                <div class="intro-wrap">
-                    <p class="title">五大职场必备准则</p>
-                    <p class="intro">LINKEDOUTCEO Rokcy告诉你</p>
-                </div>
-            </a>
-
-            <a href="play01.html" target="_blank">
-                <div class="img-wrap"><img src="{{ url_for('static',filename = 'picture/3aeea029ced091e4a4257956e66360ea.jpg') }}"></div>
-                <div class="intro-wrap">
-                    <p class="title">连阿里爸爸也要开餐厅了？还推出了一道名菜“阿里大闻鱼”</p>
-                    <p class="intro">知道大家对爸爸的企业很好奇，所以秘密探访了以后决定给大家大公开！</p>
-                </div>
-            </a>
-
-            <a href="play01.html" target="_blank">
-                <div class="img-wrap"><img src="{{ url_for('static',filename = 'picture/43787315bd9f57ddcc31b77f99e946ba.jpg') }}"></div>
-                <div class="intro-wrap">
-                    <p class="title">入职前一定要掌握哪些英文缩略词？</p>
-                    <p class="intro">入职前也是需要用心准备的</p>
-                </div>
-            </a>
-
-            <a href="play01.html" target="_blank">
-                <div class="img-wrap"><img src="{{ url_for('static',filename = 'picture/7ee0605a1363604e4b5e223c467ad5e6.jpg') }}" alt="">
-                </div>
-                <div class="intro-wrap">
-                    <p class="title">面试时如何回答离职原因？</p>
-                    <p class="intro">史上最难答，堪称送命题。不要怕，僧妞帮你答出100分。</p>
-                </div>
-            </a>
-
-            <a href="play01.html" target="_blank">
-                <div class="img-wrap"><img src="picture/0437f628a6c474a0f4241f9fbb32e84a.jpg"></div>
-                <div class="intro-wrap">
-                    <p class="title">在外企实习是一种什么样的体验？</p>
-                    <p class="intro">他们真的每天用英语交流并且毫无障碍吗？</p>
-                </div>
-            </a>
-
-            <a href="play01.html" target="_blank">
-                <div class="img-wrap"><img src="picture/94a925c012d5ee568acdf190c472b66a.png" alt=""></div>
-                <div class="intro-wrap">
-                    <p class="title">新媒体运营表示“已经修改了287次标题了！”</p>
-                    <p class="intro">《愤怒的办公室》第二弹：新媒体运营</p>
-                </div>
-            </a>
-
-            <a href="play01.html" target="_blank">
-                <div class="img-wrap"><img src="picture/3a6d420f3c64303ce966e331fc895a8f.png" alt=""></div>
-                <div class="intro-wrap">
-                    <p class="title">亿联|寻找钢铁侠预告片</p>
-                    <p class="intro">亿联|寻找钢铁侠预告片</p>
-                </div>
-            </a>
-
-            <a href="play01.html" target="_blank">
-                <div class="img-wrap"><img src="picture/7fdd7b419cbd8d42ceac45179d9cc88b.png" alt=""></div>
-                <div class="intro-wrap">
-                    <p class="title">嘉士伯丨1664</p>
-                    <p class="intro">LINKEDOUT·五天探索嘉士伯</p>
-                </div>
-            </a>
-
-
-        </div>
 
         <div class="clearfix xuanjiang-wrap">
             <div class="f-l">
-                <h3>空中宣讲 &nbsp;<span class="tip">随时随地听宣讲，参加名企招聘，获取内推机会</span><a id="tvMore" class="f-r more"
+                <h3>专栏 &nbsp;<span class="tip">你的职场加油站</span><a id="tvMore" class="f-r more"
                         href="activities.html">更多<i class="iconfont icon-arrow-right-copy"></i></a></h3>
                 <div class="list-data-wrap video-list-wrap">
                     <a href="detail01.html" target="_blank">
                         <div class="img-wrap">
-                            <img src="picture/6f5ef713efad83a67cb496fd093cd414.jpg" alt="天机机器人2021届校招空中宣讲会">
+                            <img src="{{ url_for('static',filename='picture/6f5ef713efad83a67cb496fd093cd414.jpg') }}" alt="天机机器人2021届校招空中宣讲会">
 
                             <div class="live-tip">
                                 <span class="come-soon">即将开播</span>

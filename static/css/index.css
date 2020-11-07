@@ -95,8 +95,8 @@
 .slider-container {
     /*width: 800px;*/
     /*height: 300px;*/
-    width: 860px;
-    height: 372px;
+    width: 1080px;
+    height: 467px;
     position: relative;
     overflow: hidden;
 }
@@ -120,8 +120,8 @@
 
 .slider-container > .slider-wrap > a {
     display: inline-block;
-    width: 860px;
-    height: 372px;
+    width: 1080px;
+    height: 467px;
     vertical-align: middle;
     overflow: hidden;
     background: no-repeat center;

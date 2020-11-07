@@ -5,8 +5,9 @@ from controller.database import Database
 from models.comment import Comment
 
 
+
 class Blog(object):
-    def __init__(self, author_id, author, title, description, _id=None):
+    def __init__(self, author_id, author, title, description,  _id=None):
         self._id = uuid.uuid4().hex if _id is None else _id
         self.author = author
         self.author_id = author_id
@@ -119,5 +120,9 @@ class Blog(object):
             return
 
         self.dislikes = self.dislikes - 1
+
+
+
+
 
 

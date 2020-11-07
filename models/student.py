@@ -6,14 +6,13 @@ from .blog import Blog
 
 
 class Student(User):
-    def __init__(self, email, password, sex, name, _id, skills, school):
+    def __init__(self, email, password, sex, name, skills, school, _id=None):
         User.__init__(self, email, password, sex, name, _id)
         self.skills = skills
         self.school = school
 
     @classmethod
     def get_by_email(cls, email):
-        print(email)
         user = Database.find_one(collection=constants.STUDENT_COLLECTION,
                                  query={"email": email})
         if user is not None:
@@ -36,14 +35,13 @@ class Student(User):
         self.skills.remove(skill)
         return 1
 
-
     @classmethod
     def register(cls, email, password, sex, skill, name, school):
         if not len(email) or not len(password):
             return False
         user = cls.get_by_email(email)
         if not user:
-            new_user = cls(email, password, sex, skill, name, school)
+            new_user = cls(email, password, sex, name, skill,  school)
             new_user.save_to_mongo()
             session.__setitem__('email', email)
             session.__setitem__('name', name)

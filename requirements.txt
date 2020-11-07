@@ -12,6 +12,11 @@ nltk==3.5
 numpy==1.19.3
 regex==2020.10.28
 joblib==0.17.0
+Flask-Script==2.0.6
+Flask-Uploads==0.2.1
+Flask-WTF==0.14.2
+WTForms==2.1
+
 
 
 

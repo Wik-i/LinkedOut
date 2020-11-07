@@ -2,7 +2,7 @@
     <div class="top-nav">
         <div class="top-nav-center clearfix">
             <div class="f-l">
-                <a href="#">LINKEDOUT</a>
+                <a href="/">LINKEDOUT</a>
             </div>
             <div class="f-r">
                 <a class="download-app" href="#"></a>
@@ -19,6 +19,10 @@
                     </div>
                     {% else %}
                     <div class="not-login">
+                        <a href="/publish" class="login-btn">
+                            发布新帖
+                        </a>
+                        <span class="separator">|</span>
                         <a href="/profile" class="login-btn">
                             个人中心
                         </a>
@@ -43,11 +47,11 @@
                 </li>
 
                 <li>
-                    <a href="jobs.html">看见职场</a>
+                    <a href="/jobs">看见职场</a>
                     <span class="line"></span>
                 </li>
                 <li>
-                    <a href="creators.html">简历匹配</a>
+                    <a href="/match">简历匹配</a>
                     <span class="line"></span>
                 </li>
 
