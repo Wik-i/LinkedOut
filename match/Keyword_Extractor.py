@@ -18,8 +18,8 @@ class Extractor():
         def __init__(self, filename):
                 #self.softskills=self.load_skills('web_developer/softskills.txt')
                 #self.hardskills=self.load_skills('web_developer/hardskills.txt')
-                self.softskills=self.load_skills('softskills.txt')
-                self.hardskills=self.load_skills('hardskills.txt')
+                self.softskills=self.load_skills('match/softskills.txt')
+                self.hardskills=self.load_skills('match/softskills.txt')
                 
                 self.table=list()
                 self.readfile=filename
@@ -30,7 +30,7 @@ class Extractor():
 
                 self.jb_distribution = list()
                 for j in self.joblist:
-                        self.jb_distribution.append(self.build_ngram_distribution_txt(j+'_description.txt'))
+                        self.jb_distribution.append(self.build_ngram_distribution_txt('match/'+j+'_description.txt'))
 
                 self.cv_distribution=self.build_ngram_distribution_pdf()
 
@@ -246,9 +246,9 @@ class Extractor():
                         self.getMeasures(i)
                 #print(K.simlist)
                 sim = sorted(self.simlist, reverse=True)
-                for i in range(2):
-                        print(self.joblist[i] + " matching rate: " + str(sim[i]))  
-
+                #for i in range(2):
+                #        print(self.joblist[i] + " matching rate: " + str(sim[i]))
+                return sim
         
 
 

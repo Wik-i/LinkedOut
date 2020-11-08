@@ -360,8 +360,10 @@ def upload_pdf(name=None):
                     "title":name
                 }
             }
-        extactor = Keyword_Extractor.Extractor(filename)
-        extactor.match()
+        extactor = Keyword_Extractor.Extractor(UPLOAD_FOLDER+filename)
+        sim = extactor.match()
+        for i in range(2):
+            result[extactor.joblist[i]] = " matching rate: " + str(sim[i])
         return result   # 返回保存成功的信息
 
     #get request
