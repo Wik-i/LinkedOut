@@ -194,8 +194,9 @@ def delete_blog(blog_id):
 def get_blog(blog_id=None):
     blog = Blog.get_by_id(blog_id)
     comments = blog.get_comments()
-    user = User.get_by_id(blog.author_id)
-    return render_template('blogs/single-blog.html', blog=blog, comments=comments, user=user)
+    print(blog)
+
+    return render_template('blog/single-blog.html', blog=blog, comments=comments)
 
 
 @app.route('/myblogs')
@@ -236,7 +237,9 @@ def create_new_blog():
 # -----------------------------  Comments  ----------------------------------
 @app.route('/jobs')
 def send_jobs():
-    return render_template('blog/jobs.html')
+    blogs = Blog.get_all_blogs()
+
+    return render_template('blog/jobs.html', blogs=blogs)
 
 
 @app.route('/comment/create/<blog_id>',methods=['POST'])

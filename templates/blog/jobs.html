@@ -26,145 +26,18 @@
                     <div class="more-tab">更多></div>
                 </div>
                 <div class="list-data-wrap">
-                    <a href="play03.html" target="_blank">
-                        <div class="img-wrap"><img src="picture/ddafffe48132d794ddb4fbca85c54664.jpg"></div>
-                        <p class="title">安利集团《探班Marketer的日常》</p>
+                    {% for blog  in blogs %}
+                    <a href="/blog/{{ blog['_id'] }}" target="_blank">
+                        <div class="img-wrap"><img src="{{ url_for('static',filename='picture/ddafffe48132d794ddb4fbca85c54664.jpg') }}"></div>
+                        <p class="title">{{ blog['title'] }}</p>
+                    <p class="title">作者：{{ blog['author'] }}</p>
                     </a>
+                    {% endfor %}
 
-                    <a href="play03.html" target="_blank">
-                        <div class="img-wrap"><img src="picture/ddafffe48132d794ddb4fbca85c54664.jpg"></div>
-                        <p class="title">安利集团《探班Marketer的日常》</p>
-                    </a>
 
-                    <a href="play03.html" target="_blank">
-                        <div class="img-wrap"><img src="picture/ddafffe48132d794ddb4fbca85c54664.jpg"></div>
-                        <p class="title">安利集团《探班Marketer的日常》</p>
-                    </a>
-
-                    <a href="play03.html" target="_blank">
-                        <div class="img-wrap"><img src="picture/ddafffe48132d794ddb4fbca85c54664.jpg"></div>
-                        <p class="title">安利集团《探班Marketer的日常》</p>
-                    </a>
-
-                    <a href="play03.html" target="_blank">
-                        <div class="img-wrap"><img src="picture/ddafffe48132d794ddb4fbca85c54664.jpg"></div>
-                        <p class="title">安利集团《探班Marketer的日常》</p>
-                    </a>
-
-                    <a href="play03.html" target="_blank">
-                        <div class="img-wrap"><img src="picture/ddafffe48132d794ddb4fbca85c54664.jpg"></div>
-                        <p class="title">安利集团《探班Marketer的日常》</p>
-                    </a>
-
-                    <a href="play03.html" target="_blank">
-                        <div class="img-wrap"><img src="picture/ddafffe48132d794ddb4fbca85c54664.jpg"></div>
-                        <p class="title">安利集团《探班Marketer的日常》</p>
-                    </a>
-
-                    <a href="play03.html" target="_blank">
-                        <div class="img-wrap"><img src="picture/1292f854c6e68f5e7cf8482acb8617e2.jpg"></div>
-                        <p class="title">Cadence生活面面观</p>
-                    </a>
-
-                    <a href="play03.html" target="_blank">
-                        <div class="img-wrap"><img src="picture/cdbb481a524df83357a4532b0d2bef13.png"></div>
-                        <p class="title">2021年拳头游戏校招短剧</p>
-                    </a>
-
-                    <a href="play03.html" target="_blank">
-                        <div class="img-wrap"><img src="picture/eb0e5eaf643de5b08dd901669a72859d.png"></div>
-                        <p class="title">名创优品2021校招空宣预告片</p>
-                    </a>
-
-                    <a href="play03.html" target="_blank">
-                        <div class="img-wrap"><img src="picture/a9da5323ce0f79a0d62372fcccb17a2b.png"></div>
-                        <p class="title">嘉士伯丨酿造无限可能</p>
-                    </a>
-
-                    <a href="play03.html" target="_blank">
-                        <div class="img-wrap"><img src="picture/4000307b69ba6c75f6483fd962a0c1ee.jpg"></div>
-                        <p class="title">Cadence求职大揭秘</p>
-                    </a>
-
-                    <a href="play03.html" target="_blank">
-                        <div class="img-wrap"><img src="picture/b73e84862b4df400c82a25fd6147c92a.png"></div>
-                        <p class="title">思考乐教育企业宣传片</p>
-                    </a>
-
-                    <a href="play04.html" target="_blank">
-                        <div class="img-wrap"><img src="picture/c439a729a8d60b22b1d813a6990d4acd.jpg"></div>
-                        <p class="title">易车21秋招短视频</p>
-                    </a>
-
-                    <a href="play04.html" target="_blank">
-                        <div class="img-wrap"><img src="picture/08e46a40754d9f444b39e5ecadea186b.png"></div>
-                        <p class="title">一分钟带你了解思考乐</p>
-                    </a>
-
-                    <a href="play05.html" target="_blank">
-                        <div class="img-wrap"><img src="picture/5d1a40884523b91c896dcc1e0a0a2064.jpg"></div>
-                        <p class="title">新风作浪一加人</p>
-                    </a>
-
-                    <a href="play04.html" target="_blank">
-                        <div class="img-wrap"><img src="picture/a6a4009135e0f8d30d52d1df83edb6a1.jpg"></div>
-                        <p class="title">让工作飞一会儿</p>
-                    </a>
-
-                    <a href="play06.html" target="_blank">
-                        <div class="img-wrap"><img src="picture/a851a08500de1e22b00e7bddcd49113f.jpeg"></div>
-                        <p class="title">优特科技2021届空中宣讲会预告片</p>
-                    </a>
-
-                    <a href="play04.html" target="_blank">
-                        <div class="img-wrap"><img src="picture/6c3debf6c27b11e9759606786b934003.jpg"></div>
-                        <p class="title">2021百威全球管理培训生招募空中宣讲会</p>
-                    </a>
-
-                    <a href="play02.html" target="_blank">
-                        <div class="img-wrap"><img src="picture/d0d092c6387ac8e89fa43a683fda7633.jpeg"></div>
-                        <p class="title">“特优人才入优特”优特科技校招</p>
-                    </a>
-
-                    <a href="play04.html" target="_blank">
-                        <div class="img-wrap"><img src="picture/3f5ea1984f972b95947a535ffd77e0ba.png"></div>
-                        <p class="title">蓝月亮2021校园招聘空宣预告片</p>
-                    </a>
-
-                    <a href="play04.html" target="_blank">
-                        <div class="img-wrap"><img src="picture/a65650eb7f8d005d1133d1547f87a534.png"></div>
-                        <p class="title">中兴每一秒</p>
-                    </a>
-
-                    <a href="play04.html" target="_blank">
-                        <div class="img-wrap"><img src="picture/223b2b81880a1c653eb930e2e826e02e.png"></div>
-                        <p class="title">汉高招聘预热视频</p>
-                    </a>
-
-                    <a href="play04.html" target="_blank">
-                        <div class="img-wrap"><img src="picture/c613eed4d0efae1fdb2ebda4d0b08605.png"></div>
-                        <p class="title">The introduction of Henkel</p>
-                    </a>
 
                 </div>
-                <div id="pagebar" class="pagination">
-                    <ul>
-                        <li class="disabled"><span>首页</span></li>
-                        <li class="disabled"><span>上一页</span></li>
-                        <li class="active"><a title="第1页 / 共18页">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">6</a></li>
-                        <li><a href="#">7</a></li>
-                        <li><a href="#">8</a></li>
-                        <li><a href="#">9</a></li>
-                        <li><a href="#">10</a></li>
-                        <li><a href="#">下一页</a></li>
-                        <li><a href="#">尾页</a></li>
-                    </ul>
-                </div>
+
             </div>
             <div class="list-right-wrap f-r">
                 <div class="nav-wrap recently-title-wrap">
