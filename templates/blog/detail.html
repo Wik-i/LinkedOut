@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 
@@ -9,9 +11,10 @@
     <title>天机机器人2021届校招空中宣讲会 | LINKEDOUTTV空中宣讲</title>
 {% include 'css.html' %}
     <link href="{{ url_for('static',filename = 'css/global.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename = 'css/layui/css/layui.css') }}" rel="stylesheet">
 </head>
 
-<body style="margin-top: 0px">
+<body>
     {% include 'header.html' %}
 
 
@@ -30,8 +33,8 @@
 {#                </div>#}
                 <div class="detail-box">
 
-                    <div class="detail-body" id="content">
-                        {{ blog.description }}
+                    <div class="detail-body photos">
+                        <p>{{ blog.description }}</p>
                     </div>
 
                 </div>
@@ -67,23 +70,17 @@
     </div>
     {% include 'endBanner.html' %}
     <script src="js/jquery-1.9.1.min.js"></script>
-    <script>
-        window.onload = (function(){
-            var html = "{{ content }}"
-            html = noEscapeHtml(html)
-            html = '\"'+html+'\"'
-            alert(html)
-            var testdiv = document.getElementById("content")
 
-            testdiv.innerHTML= html;
+    {% block fly_use %}
+        .use(['fly', 'face'],  function(){
+        var $ = layui.$
+        ,fly = layui.fly;
+        $('.detail-body').each(function(){
+        var othis = $(this), html = othis.html();
+        othis.html(fly.content(html));
         });
-
-	 function noEscapeHtml(html) {
-		return html.replace(/&lt;/g, "<")
-            .replace(/&gt;/g, ">")
-            .replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&apos;/g, "'");
-	 }
-    </script>
+        });
+    {% endblock %}
 </body>
 
 </html>

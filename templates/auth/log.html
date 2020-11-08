@@ -57,7 +57,7 @@
     .banner {
       height: 100%;
       width: 100%;
-      background-image: url('images/761cc80c7d30a49c90219386554e0f7.jpg');
+      background-image: url('{{ url_for('static',filename='images/761cc80c7d30a49c90219386554e0f7.jpg') }}');
       background-repeat: no-repeat;
       background-size: 100% 100%;
     }
@@ -202,7 +202,7 @@
                            name="email" required>
                 </div>
                 <div class="single-about">
-                    <input type="text" class="my-input" id="login-password" name="password" placeholder="请输入密码" required>
+                    <input type="password" class="my-input" id="login-password" name="password" placeholder="请输入密码" required>
                 </div>
                 <div class="single-about">
                     <select name="identity"  class="my-input" style="margin: 10px;padding-bottom: 5px; padding-top: 10px" required>

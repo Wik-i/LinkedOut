@@ -194,9 +194,11 @@ def delete_blog(blog_id):
 def get_blog(blog_id=None):
     blog = Blog.get_by_id(blog_id)
     comments = blog.get_comments()
-    print(blog)
+    content = str(blog.description)
+    print(content)
 
-    return render_template('blog/single-blog.html', blog=blog, comments=comments)
+
+    return render_template('blog/single-blog.html', blog=blog, comments=comments,content = content)
 
 
 @app.route('/myblogs')
@@ -364,7 +366,8 @@ def upload_pdf(name=None):
         sim = extactor.match()
         for i in range(2):
             result[extactor.joblist[i]] = " matching rate: " + str(sim[i])
-        return result   # 返回保存成功的信息
+        print(result)
+        return render_template('match/matchResult.html', result=result)   # 返回保存成功的信息
 
     #get request
     if not name:
