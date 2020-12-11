@@ -95,11 +95,11 @@ def login_student(email, password):
         else:
             session.__setitem__('email', None)
             session.__setitem__('name', None)
-            return render_template('auth/test.html', prompt_error="密码错误")
+            return render_template('auth/log.html', prompt_error="密码错误")
     else:
         session.__setitem__('email', None)
         session.__setitem__('name', None)
-        return render_template('auth/test.html', prompt_error="该用户不存在  ")
+        return render_template('auth/log.html', prompt_error="该用户不存在  ")
     return redirect('/', code=302)
 
 
@@ -112,17 +112,21 @@ def register_user():
     prompt_message = ""
     email = request.form.get('email')
     password = request.form.get('password')
-    sex = "none"
-    name = "name"
+    sex = "请完善性别信息"
+    name = "请完善姓名信息"
     identity = request.form.get("identity")
-    school = "school"
-    company = "company"
+    school = request.form.get('school')
+    company = request.form.get('company')
+    if school == "":
+        school = "请完善学校信息"
+    if company == "":
+        company == "请完善公司信息"
     if identity == "student":
         return register_student(email, password, sex, name, school)
     elif identity == "commuter":
         return register_commuter(email, password, sex, name, company)
     prompt_message = "something wrong happening!!"
-    return render_template('auth/register.html', prompt_message)
+    return render_template('auth/register.html', prompt_error=prompt_message)
 
 
 
@@ -134,7 +138,7 @@ def register_student(email, password, sex, name, school):
         return redirect('/', code=302)
     else:
         prompt_alert = 'User with the same email already exists!'
-    return render_template('auth/register.html', prompt_message=prompt_alert)
+    return render_template('auth/register.html', prompt_error=prompt_alert)
 
 
 def login_commuter(email, password):
@@ -146,11 +150,11 @@ def login_commuter(email, password):
         else:
             session.__setitem__('email', None)
             session.__setitem__('name', None)
-            return render_template('auth/test.html', prompt_error="密码错误")
+            return render_template('auth/log.html', prompt_error="密码错误")
     else:
         session.__setitem__('email', None)
         session.__setitem__('name', None)
-        return render_template('auth/test.html', prompt_error="该用户不存在  ")
+        return render_template('auth/log.html', prompt_error="该用户不存在  ")
     return redirect('/', code=302)
 
 
@@ -163,7 +167,7 @@ def register_commuter(email, password, sex, name, company):
         return redirect('/', code=302)
     else:
         prompt_alert = 'User with the same email already exists!'
-    return render_template('auth/register.html', prompt_message=prompt_alert)
+    return render_template('auth/register.html', prompt_error=prompt_alert)
 
 @app.route('/logout')
 def logout():
@@ -233,7 +237,7 @@ def create_new_blog():
     description = request.form.get('blogContent')
     blog = Blog(title=title, description=description, author=user.name, author_id=user._id)
     blog.save_to_mongo()
-    return redirect('/myblogs')
+    return redirect('/')
 
 
 # -----------------------------  Comments  ----------------------------------

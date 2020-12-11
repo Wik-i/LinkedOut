@@ -6,7 +6,7 @@
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
     <meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1">
     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8;">
-    <title>天机机器人2021届校招空中宣讲会 | LINKEDOUTTV空中宣讲</title>
+    <title>{{ blog.title }}</title>
 {% include 'css.html' %}
     <link href="{{ url_for('static',filename = 'css/global.css') }}" rel="stylesheet">
 </head>
@@ -43,7 +43,7 @@
                     </div>
                     <div class="v_judge">
                         <!--评论分页-->
-                        <div class="v_judge_title">全部评论<span>4</span></div>
+                        <div class="v_judge_title">全部评论<span>0</span></div>
                         <div class="v_judge_text clearfix">
                             <div class="v_judge_img f-l">
                                 <img src="picture/default_headpic.png" />
@@ -67,23 +67,23 @@
     </div>
     {% include 'endBanner.html' %}
     <script src="js/jquery-1.9.1.min.js"></script>
-    <script>
-        window.onload = (function(){
-            var html = "{{ content }}"
-            html = noEscapeHtml(html)
-            html = '\"'+html+'\"'
-            alert(html)
-            var testdiv = document.getElementById("content")
-
-            testdiv.innerHTML= html;
-        });
-
-	 function noEscapeHtml(html) {
-		return html.replace(/&lt;/g, "<")
-            .replace(/&gt;/g, ">")
-            .replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&apos;/g, "'");
-	 }
-    </script>
+{#    <script>#}
+{#        window.onload = (function(){#}
+{#            var html = "{{ content }}"#}
+{#            html = noEscapeHtml(html)#}
+{#            html = '\"'+html+'\"'#}
+{##}
+{#            var testdiv = document.getElementById("content")#}
+{##}
+{#            testdiv.innerHTML= html;#}
+{#        });#}
+{##}
+{#	 function noEscapeHtml(html) {#}
+{#		return html.replace(/&lt;/g, "<")#}
+{#            .replace(/&gt;/g, ">")#}
+{#            .replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&apos;/g, "'");#}
+{#	 }#}
+{#    </script>#}
 </body>
 
 </html>

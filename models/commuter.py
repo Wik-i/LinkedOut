@@ -5,8 +5,8 @@ from .user import User
 from .blog import Blog
 
 class Commuter(User):
-    def __init__(self, email, password, sex, name, company):
-        User.__init__(self, email, password, sex, name)
+    def __init__(self, email, password, sex, name, company, _id=None):
+        User.__init__(self, email, password, sex, name, _id=None)
         self.company = company
 
     @classmethod

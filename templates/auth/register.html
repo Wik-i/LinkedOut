@@ -6,7 +6,7 @@
   <title>welcome</title>
   <link href="{{ url_for('static',filename = 'css/bootstrap.css') }}" rel="stylesheet" />
   <script src="{{ url_for('static',filename = 'js/jquery-1.9.1.min.js') }}" type="text/javascript"></script>
-  <script src="{{ url_for('static',filename = 'js/bootstrap.min.js') }}" type="text/javascript"></script>
+{#  <script src="{{ url_for('static',filename = 'js/bootstrap.min.js') }}" type="text/javascript"></script>#}
   <!-- <link rel="stylesheet" type="text/css" href="css/lg.css" /> -->
   <style>
     html {
@@ -46,7 +46,7 @@
       background-color: #fff;
 
       float: right;
-      height: 400px;
+      height: 450px;
       width: 365px;
       margin-top: 105px;
       padding: 20px;
@@ -197,6 +197,16 @@
         <div>
 
             <form action="/auth/register" method="POST" id="login-form">
+
+                {% if prompt_error|length > 0 %}
+                    <div class="alert alert-dismissible show" role="alert" style=" margin-bottom: 0px;" >
+                        <strong>Error!</strong>    {{ prompt_error }}
+                    </div>
+                {% else %}
+                    <div>
+                    </div>
+                {% endif %}
+
                 <div class="single-about pb-30">
                     <input type="text" class="my-input" id="login-email" placeholder="请输入用户名"
                            name="email" required>
@@ -213,26 +223,16 @@
                         <option value="student">学生</option>
                         <option value="commuter">职场人士</option>
                     </select>
-
                 </div>
 
 
                 <div class="single-about">
-                    <input type="text" class="my-input" id="company" name="company" placeholder="请输入所属公司" required>
+                    <input type="text" class="my-input" id="company" name="company" placeholder="请输入所属公司" >
                 </div>
                 <div class="single-about">
-                    <input type="text" class="my-input" id="school" name="school" placeholder="请输入所在学校" required>
+                    <input type="text" class="my-input" id="school" name="school" placeholder="请输入所在学校" >
                 </div>
 
-
-                {% if prompt_error|length > 0 %}
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 20px">
-                        <strong>Error!</strong> {{ prompt_error }}
-                    </div>
-                {% else %}
-                    <div>
-                    </div>
-                {% endif %}
                 <div style="padding-top: 30px">
                     <button type="submit" class="btn">注册</button>
                 </div>
@@ -247,7 +247,6 @@
 
 
 
-  <script src="{{ url_for('static',filename = 'jquery/dist/jquery.min.js') }}" type="text/javascript"></script>
     <script>
         function showinfo(values) {
             if (values == "commuter") {

@@ -46,7 +46,7 @@
       background-color: #fff;
 
       float: right;
-      height: 400px;
+      height: 450px;
       width: 365px;
       margin-top: 105px;
       padding: 20px;
@@ -197,6 +197,14 @@
         <div>
 
             <form action="/auth/login" method="POST" id="login-form">
+                {% if prompt_error|length > 0 %}
+                    <div class="alert alert-dismissible show" role="alert" style=" margin-bottom: 0px;" >
+                        <strong>Error!</strong>    {{ prompt_error }}
+                    </div>
+                {% else %}
+                    <div>
+                    </div>
+                {% endif %}
                 <div class="single-about pb-30">
                     <input type="text" class="my-input" id="login-email" placeholder="请输入用户名"
                            name="email" required>
@@ -211,14 +219,6 @@
                         <option value="commuter">职场人士</option>
                     </select>
                 </div>
-                {% if prompt_error|length > 0 %}
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 20px">
-                        <strong>Error!</strong> {{ prompt_error }}
-                    </div>
-                {% else %}
-                    <div>
-                    </div>
-                {% endif %}
                 <div style="padding-top: 30px">
                     <button type="submit" class="btn">登录</button>
                 </div>

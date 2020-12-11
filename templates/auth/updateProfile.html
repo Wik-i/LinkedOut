@@ -10,12 +10,6 @@
     <link href="{{ url_for('static',filename='css/common.css') }}" rel="stylesheet">
     <link href="{{ url_for('static',filename = 'css/base.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static',filename='css/user.css') }}">
-    <style>
-        .frameBtn {text-align:right;margin:20px 0px;padding-top:20px;}
-	.frameBtn .layui-btn{width: 15%;height: 30px}
-	.frameBtn .sub{background-color: #5cb85c}
-	.frameBtn .cancel{background-color: #00FF00;border: 1px #cecece solid;color: #5DB276;}
-    </style>
 </head>
 
 <body>
@@ -26,7 +20,7 @@
     <div class="content-wrap">
         <div class="content clearfix">
             <div class="f-r">
-                <form class="user-form">
+                <form class="user-form" action="">
                     <div class="user-form-row clearfix">
 
                         <div class="f-l">
@@ -55,13 +49,14 @@
                             <div class="title" style="margin: 5px"><p>{{ user['email'] }}</p></div>
                         </div>
                     </div>
-                    <div class="frameBtn" >
-                        <button class="layui-btn" >
-                            更新信息
-                        </button>
+
+                    <div class="user-form-row clearfix">
+
                     </div>
                     
                 </form>
+
+
 
             </div>
         </div>
