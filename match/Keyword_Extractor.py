@@ -62,10 +62,10 @@ class Extractor():
                 f=open(filename,'r')
                 skills=[]
                 for line in f:
-                        #eliminate punctuation and upper cases
+                        #去除标点符号和大写
                         skills.append(self.clean_phrase(line)) 
                 f.close()
-                return list(set(skills))  #remove duplicates
+                return list(set(skills))  #去除重复元素
 
 
         def build_ngram_distribution_pdf(self):
@@ -128,18 +128,6 @@ class Extractor():
                 return max(v1-v2,0)
 
         def measure3(self,v1,v2):
-                #cosine similarity
-##                intersection = set(vec1.keys()) & set(vec2.keys())
-##                numerator = sum([vec1[x] * vec2[x] for x in intersection])
-##                sum1 = sum([vec1[x]**2 for x in vec1.keys()])
-##                sum2 = sum([vec2[x]**2 for x in vec2.keys()])
-##                denominator = math.sqrt(sum1) * math.sqrt(sum2)
-##
-##                if not denominator:
-##                    return 0.0
-##                else:
-##                  return float(numerator) / denominator
-                #"compute cosine similarity of v1 to v2: (v1 dot v2)/{||v1||*||v2||)"
                 sumxx, sumxy, sumyy = 0, 0, 0
                 for i in range(len(v1)):
                         x = v1[i]; y = v2[i]
@@ -193,7 +181,7 @@ class Extractor():
                 parts_of_speech=['CD','JJ','JJR','JJS','MD','NN','NNS','NNP','NNPS','RB','RBR','RBS','VB','VBD','VBG','VBN','VBP','VBZ']
                 graylist=["you", "will"]
                 tmp_table=[]
-                #look if the skills are mentioned in the job description and then in the resume
+                #查找softskills和hardskills中的哪些在职业描述和简历中存在
                 
                 for skill in self.hardskills:
                         if skill in self.jb_distribution[i]:
@@ -218,17 +206,16 @@ class Extractor():
                                 tmp_table.append(['soft',skill,count_jb,count_cv,m1,m2])
                                                 
 
-                #And now for the general language of the job description:
-                #Sort the distribution by the words most used in the job description
+                #排序职业描述中最常出现的单词
 
-                general_language = sorted(self.jb_distribution[i].items(), key=operator.itemgetter(1),reverse=True)
+                general_language = sorted(self.jb_distribution[i].items(), key=operator.itemgetter(1), reverse=True)
                 for tuple in general_language:
                         skill = tuple[0]
                         if skill in self.hardskills or skill in self.softskills or skill in graylist:
                                 continue
                         count_jb = tuple[1]
-                        tokens=nltk.word_tokenize(skill)
-                        parts=nltk.pos_tag(tokens)
+                        tokens=nltk.word_tokenize(skill) #分词，拆解长句子
+                        parts=nltk.pos_tag(tokens) #标注词语对应词性
                         if all([parts[i][1]in parts_of_speech for i in range(len(parts))]):
                                 if skill in self.cv_distribution:
                                         count_cv=self.cv_distribution[skill]
