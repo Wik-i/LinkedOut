@@ -14,8 +14,6 @@ app.secret_key = "NotSecure"
 basedir=os.path.abspath(os.path.dirname(__file__))
 UPLOAD_FOLDER = str(basedir)+'\\uploads\\'
 
-
-
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif','doc'])
 
